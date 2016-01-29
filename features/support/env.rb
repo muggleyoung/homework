@@ -6,3 +6,7 @@ require 'rspec'
 require 'pry'
 
 Capybara.default_driver = :selenium
+
+After do |scenario|
+  Capybara.reset_sessions!
+end
