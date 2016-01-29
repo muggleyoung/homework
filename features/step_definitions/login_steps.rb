@@ -1,16 +1,16 @@
 Given(/^I visit GitHub$/) do
-  visit('http://github.com')
+  home = HomePage.new
+  home.visitGitHub
 end
 
 When(/^I log in with my credentials$/) do
-  click_link('Sign in')
-  page.should have_css('#login')
-  find('#login_field').set('muggleyoung@mailinator.com')
-  find('#password').set('muggle123')
-  find('.auth-form-body input.btn-primary').click
+  login_page = LoginPage.new
+  login_page.visit
+  login_page.sign_in
 end
 
 Then(/^I should see welcome message on the page$/) do
-  find('#dashboard div.select-menu').should have_text('dummymuggleyoung')
+  dashboard = DashboardPage.new
+  dashboard.verify_user
 end
 
