@@ -19,18 +19,7 @@ describe 'users' do
     json = JSON.parse(response.body)
     expect(response).to be_success
 
-    schema = {
-        'type' => 'object',
-        'required' => %w(login id repos_url public_repos),
-        'properties' => {
-            'login' => {'type' => 'string'},
-            'id' => {'type' => 'integer'},
-            'repos_url' => {'type' => 'string'},
-            'public_repos' => {'type' => 'integer'}
-        }
-    }
-
-    expect(JSON::Validator.validate(schema, json)).to be_truthy
+    expect(JSON::Validator.validate('spec/user.json', json)).to be_truthy
   end
 
 end
