@@ -1,8 +1,12 @@
 class DashboardPage
   include Capybara::DSL
 
+  def initialize
+    @select_menu = '#dashboard div.select-menu'
+  end
+
   def verify_user
-    find('#dashboard div.select-menu').has_text?('dummymuggleyoung')
+    find(@select_menu).has_text?('dummymuggleyoung')
     puts 'User signed in GitHub...'
   end
 
