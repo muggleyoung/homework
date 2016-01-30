@@ -16,9 +16,9 @@ module Pages
     end
 
     def sign_in
-      @users = YAML.load_file('features/support/user.yml')
-      find(@username).set(@users[0]['username'])
-      find(@password).set(@users[0]['password'])
+      user = Users.new.random_user
+      find(@username).set(user['username'])
+      find(@password).set(user['password'])
       find(@sign_in).click
       puts 'User filled in credentials...'
     end
