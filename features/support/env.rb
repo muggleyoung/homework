@@ -17,4 +17,7 @@ end
 
 After do |scenario|
   Capybara.reset_sessions!
+  if scenario.failed?
+    puts "Scenario failed: #{scenario.inspect} | #{scenario.exception.message}"
+  end
 end
