@@ -17,8 +17,8 @@ module Pages
 
     def sign_in
       user = Users.new.random_user
-      find(@username).set(user['username'])
-      find(@password).set(user['password'])
+      find(@username).set(user.email)
+      find(@password).set(user.password)
       find(@sign_in).click
       puts 'User filled in credentials...'
     end

@@ -5,6 +5,7 @@ class Users
   end
 
   def random_user
-    @users.first
+    user = @users.first
+    OpenStruct.new(email: user['email'],password: user['password'])
   end
 end

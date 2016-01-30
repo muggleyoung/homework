@@ -6,7 +6,7 @@ module Pages
       @homepage = '.homepage'
     end
 
-    def visitGitHub
+    def visit_github
       visit('http://github.com')
       page.has_css?(@homepage)
     end

@@ -1,5 +1,5 @@
 Given(/^I visit GitHub$/) do
-  @home.visitGitHub
+  @home.visit_github
 end
 
 When(/^I log in with my credentials$/) do
