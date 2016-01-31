@@ -1,9 +1,10 @@
+require 'pry'
 require 'selenium-webdriver'
 require 'capybara'
 require 'capybara/cucumber'
-require 'capybara/dsl'
 require 'rspec'
-require 'pry'
+require 'capybara/rspec'
+require 'capybara/dsl'
 
 require 'yaml'
 

@@ -1,6 +1,5 @@
 module Pages
-  class Home
-    include Capybara::DSL
+  class Home < Base
 
     def initialize
       @homepage = '.homepage'
@@ -8,7 +7,7 @@ module Pages
 
     def visit_github
       visit('http://github.com')
-      page.has_css?(@homepage)
+      expect(page).to have_css(@homepage)
     end
   end
 end
