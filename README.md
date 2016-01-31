@@ -64,19 +64,18 @@
 
 *Test one API from GitHub:*
 
-- Tested the Get request to get user information, and the response should be 200OK with required user data
-- 
+- Use Get request to get user information, and the response should be 200 with existing user
+- Get an invalid user data with the request, the response should be 404
 
 *Assumptions:*
 
-- Assume the user data has already been created - could be created by api, manually or inserted to database, so the test now use the data directly from a yml file
+- Assume the user data has already been inserted to the database
+- Assume the test is from the consumer side, so scope is about the schema of the response json and the fields that the consumer consumes
 
 *Implementation:*
 
-- Implemented with cucumber, capybara, selenium-webdriver
-- Three page has been used, so created different page model for them
-- Cleared browser session after each scenario run, so that the scenarios are independent between each other
-- Created user model, so when there is more user data for test, the test will be able to easily get one of them randomly or by order
-- The default driver now is firefox, but it is extendable, can add other browser support if needed
+- Implemented with rspec, faraday, because the integration test for API usually has less business behaviour involved
+- The schema of the response is defined in schema.json file. If it is for API from non-public provider, could use pact or other contract test tool to build up the mock server response
+- For this Get request tested, there are two cases: 200 and 404. But could have more different cases tested for other APIs, eg. 500, 400 etc.
 
 
