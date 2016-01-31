@@ -22,4 +22,10 @@ describe 'users' do
     response = @connection.get '/users/muggleyoung'
     expect(JSON::Validator.validate('spec/schemas/user.json', response.body)).to be_truthy
   end
+
+  it 'should return not found when request for invalid user' do
+    response = @connection.get '/users/muggleyoung1'
+    expect(response.status).to eq(404)
+  end
+
 end
