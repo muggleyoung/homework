@@ -36,7 +36,7 @@
 	```
 
 
-### Test Plan and Assumptions:
+### Test Strategies and Assumptions:
 
 #### Web Test
 
